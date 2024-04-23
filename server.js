@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
-const connectDB = require('./config/dbConn');
+const connectDB = require('./config/dbConn.js');
 const PORT = process.env.PORT || 3500;
 
 // Connect to MongoDB
@@ -24,7 +24,7 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 
 // Routes
 app.use('/', require('./routes/root'));
-app.use('/states/', require('./routes/api/states'));
+app.use('/states/', require('./routes/api/states.js'));
 
 // Universal 404 page
 app.all('*', (req, res) => {

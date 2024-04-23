@@ -1,4 +1,4 @@
-const State = require('../model/State');
+const State = require('../model/State.js');
 const statesJson = require('../public/json/states.json');
 
 // requires a valid state
