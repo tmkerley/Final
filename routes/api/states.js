@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const statesController = require('../../controllers/statesController');
-const funfactsController = require('../../controllers/funfactsController');
-const verifyState = require('../../middleware/verifyState');
+const statesController = require('../../controllers/statesController.js');
+const funfactsController = require('../../controllers/factsController.js');
+const verifyState = require('../../middleware/verifyState.js');
 
 // Returns data for all states
 router.route('/').get(statesController.getAllStates);
