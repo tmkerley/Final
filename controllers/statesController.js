@@ -7,12 +7,12 @@ const getAllStates = async (req, res) => {
     let stJson, dbJson;
 
     // Check if contig option provided
-    if (req?.query?.contig == 'true') {
+    if (req.query.contig == 'true') {
         // If contig is true, filter out AK and HI
         stJson = statesJson.filter(
             (state) => state.code !== 'AK' && state.code !== 'HI');
         dbJson = await State.find();
-    } else if (req?.query?.contig == 'false') {
+    } else if (req.query.contig == 'false') {
         // If contig is false, return only AK and HI
         stJson = statesJson.filter(
             (state) => state.code === 'AK' || state.code === 'HI');
@@ -117,7 +117,7 @@ const joinStatesWithFunFacts = (statesJson, dbJson) => {
         const facts = dbJson.find((state) => state.statecode === stateCode);
 
         // Join the fun facts to the stateJson
-        if (facts?.funfacts?.length > 0 && facts.funfacts != []) {
+        if (facts.funfacts.length > 0 && facts.funfacts != []) {
             result.funfacts = facts.funfacts;
         }
 

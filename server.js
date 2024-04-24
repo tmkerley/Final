@@ -23,7 +23,7 @@ app.use(express.json());
 app.use('/', express.static(path.join(__dirname, '/public')));
 
 // Routes
-app.use('/', require('./routes/root'));
+app.use('/', require('./routes/root.js'));
 app.use('/states/', require('./routes/api/states.js'));
 
 // Universal 404 page

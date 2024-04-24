@@ -6,7 +6,7 @@ const statesJson = require('../public/json/states.json');
 const getRandomFact = async (req, res) => {
     // Get all fun facts for the given state
     const state = await State.findOne({ statecode: req.params.state });
-    const facts = state?.funfacts;
+    const facts = state.funfacts;
 
     // Ensure results were found
     if (!facts || facts.length === 0) {
@@ -30,7 +30,7 @@ const getRandomFact = async (req, res) => {
 // creates a fact for the valid state
 const createFact = async (req, res) => {
     // Ensure a fun fact object was passed in the request body
-    if (!req?.body?.funfacts) {
+    if (!req.body.funfacts) {
         return res.status(400).json({ message: 'State fun facts value required' });
     }
     // Ensure the funfacts value is an array
@@ -73,9 +73,9 @@ const createFact = async (req, res) => {
 // failure response provided
 const modifyFact = async (req, res) => {
     // Store params for readability
-    const stateCode = req?.params?.state;
-    const index = req?.body?.index;
-    const funfact = req?.body?.funfact;
+    const stateCode = req.params.state;
+    const index = req.body.index;
+    const funfact = req.body.funfact;
 
     // Ensure an index value was provided in the request body
     if (!index) {
@@ -124,8 +124,8 @@ const modifyFact = async (req, res) => {
 // returns id, stateCode, funfacts, and __v.
 const deleteFact = async (req, res) => {
     // Store the undex and state
-    const stateCode = req?.params?.state;
-    const index = req?.body?.index;
+    const stateCode = req.params.state;
+    const index = req.body.index;
 
     // Check if index is not false or exists
     if (!index) {

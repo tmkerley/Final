@@ -9,7 +9,7 @@ Results:
 */
 const verifyState = (req, res, next) => {
     // Store the state code for readability
-    const stateCode = req?.params?.state?.toUpperCase();
+    const stateCode = req.params.state.toUpperCase();
 
     // Check that a state code was provided
     if (!stateCode) {
