@@ -1,5 +1,5 @@
 const State = require('../model/State.js');
-const statesJson = require('../public/json/states.json');
+const statesJson = require('../public/json/States.json');
 
 // requires a valid state
 // return random fact for a state
