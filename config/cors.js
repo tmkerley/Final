@@ -1,7 +1,7 @@
 // Cross-Origin Resource Sharing
 const whiteList = [
     "https://www.google.com",
-    "https://sand-wheat-delivery.glitch.me/",
+    "https://woolen-zest-daffodil.glitch.me/",
     "http://127.0.0.1:5500",
     "http://localhost:3000",
   ];

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const statesController = require('../../controllers/statesController.js');
-const funfactsController = require('../../controllers/factsController.js');
+const factsController = require('../../controllers/factsController.js');
 const verifyState = require('../../middleware/verifyState.js');
 
 // Returns data for all states
@@ -33,9 +33,9 @@ router
 // State fun facts
 router
   .route('/:state/funfact')
-  .get(verifyState, funfactsController.getRandomFact)
-  .post(verifyState, funfactsController.createFact)
-  .patch(verifyState, funfactsController.modifyFact)
-  .delete(verifyState, funfactsController.deleteFact);
+  .get(verifyState, factsController.getRandomFact)
+  .post(verifyState, factsController.createFact)
+  .patch(verifyState, factsController.modifyFact)
+  .delete(verifyState, factsController.deleteFact);
 
 module.exports = router;

@@ -117,8 +117,13 @@ const joinStatesWithFunFacts = (statesJson, dbJson) => {
         const facts = dbJson.find((state) => state.statecode === stateCode);
 
         // Join the fun facts to the stateJson
-        if (facts.funfacts.length > 0 && facts.funfacts != []) {
+        try {
+        if (facts.funfacts.length > 0 && facts.funfacts != NULL) {
             result.funfacts = facts.funfacts;
+        }
+        }
+        catch (error){
+            console.error("facts.funfacts at 124 is undefined.");
         }
 
         // Return the result
