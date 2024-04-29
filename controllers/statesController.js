@@ -106,6 +106,7 @@ module.exports = {
 
 // Takes an array of json objects for states and joins them with the fun facts from the database
 const joinStatesWithFunFacts = (statesJson, dbJson) => {
+    console.log(dbJson);
     return statesJson.map((stateJson) => {
         // Get the state code
         const stateCode = stateJson.code;
@@ -118,7 +119,7 @@ const joinStatesWithFunFacts = (statesJson, dbJson) => {
 
         // Join the fun facts to the stateJson
         try {
-        if (facts.funfacts.length > 0 && facts.funfacts != NULL) {
+        if (facts.funfacts.length > 0 && facts.funfacts != []) {
             result.funfacts = facts.funfacts;
         }
         }
