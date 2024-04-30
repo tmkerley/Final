@@ -23,7 +23,7 @@ const getAllStates = async (req, res) => {
         stJson = JSON.parse(JSON.stringify(statesJson));
         dbJson = await State.find();
     }
-
+    
     const states = joinStatesWithFunFacts(stJson, dbJson);
 
     // Check if any data was found
