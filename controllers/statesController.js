@@ -12,7 +12,7 @@ const getAllStates = async (req, res) => {
         // If contig is true, filter out AK and HI
         stJson = statesJson.filter(
             (state) => state.code !== 'AK' && state.code !== 'HI');
-        dbJson = await State.find('CO');
+        dbJson = await State.find();
     } else if (req.query.contig == 'false') {
         // If contig is false, return only AK and HI
         stJson = statesJson.filter(
