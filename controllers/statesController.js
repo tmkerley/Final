@@ -3,6 +3,7 @@ const statesJson = require('../public/json/States.json');
 
 // Returns all data for all states
 const getAllStates = async (req, res) => {
+    console.log(State);
     // Create varaible to hold the json from the states file and the db
     let stJson, dbJson;
 
@@ -11,7 +12,7 @@ const getAllStates = async (req, res) => {
         // If contig is true, filter out AK and HI
         stJson = statesJson.filter(
             (state) => state.code !== 'AK' && state.code !== 'HI');
-        dbJson = await State.find();
+        dbJson = await State.find('CO');
     } else if (req.query.contig == 'false') {
         // If contig is false, return only AK and HI
         stJson = statesJson.filter(
@@ -106,7 +107,6 @@ module.exports = {
 
 // Takes an array of json objects for states and joins them with the fun facts from the database
 const joinStatesWithFunFacts = (statesJson, dbJson) => {
-    console.log(dbJson);
     return statesJson.map((stateJson) => {
         // Get the state code
         const stateCode = stateJson.code;

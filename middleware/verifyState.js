@@ -4,7 +4,8 @@ const statesJson = require('../public/json/States.json');
 Verifies that a valid state code has been passed as a url parameter 
 Results:
   - If no state code is included, returns a 400 error and message
-  - If the state code is valid, converts the value to uppercase and reattaches it to the request, passing it to the next function
+  - If the state code is valid, converts the value to uppercase and reattaches 
+  - it to the request, passing it to the next function
   - If the state code is invalid, returns a 400 error and message
 */
 const verifyState = (req, res, next) => {
