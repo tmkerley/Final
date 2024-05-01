@@ -3,7 +3,7 @@ const statesJson = require('../public/json/States.json');
 
 // Returns all data for all states
 const getAllStates = async (req, res) => {
-    console.log(State.at(0));
+    
     // Create varaible to hold the json from the states file and the db
     let stJson, dbJson;
 
@@ -118,13 +118,8 @@ const joinStatesWithFunFacts = (statesJson, dbJson) => {
         const facts = dbJson.find((state) => state.statecode === stateCode);
 
         // Join the fun facts to the stateJson
-        try {
-        if (facts.funfacts.length > 0 && facts.funfacts !== 'undefined') {
+        if (facts?.funfacts?.length > 0 && facts.funfacts != []) {
             result.funfacts = facts.funfacts;
-        }
-        }
-        catch (error){
-            console.error("facts.funfacts at 124 is undefined.");
         }
 
         // Return the result
