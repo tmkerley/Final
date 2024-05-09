@@ -5,7 +5,9 @@ const statesJson = require('../public/json/States.json');
 // return random fact for a state
 const getRandomFact = async (req, res) => {
     // Get all fun facts for the given state
-    const state = await State.findOne({ statecode: req.params.state });
+    console.log("Looking for state CO");
+    const state = await State.find({ statecode: req.params.state.toUpperCase() });
+    console.log(state.state);
     const facts = state.funfacts;
 
     // Ensure results were found
